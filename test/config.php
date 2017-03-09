@@ -17,3 +17,10 @@ define("ANAX_INSTALL_PATH", realpath(__DIR__ . "/.."));
  * Include autoloader.
  */
 require ANAX_INSTALL_PATH . "/vendor/autoload.php";
+
+
+
+/**
+ * Include others.
+ */
+require "View/MockViewHelper.php";

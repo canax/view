@@ -8,7 +8,7 @@ namespace Anax\View;
  */
 class ViewContainer implements \Anax\Common\AppInjectableInterface
 {
-    use \Anax\ConfigureTrait,
+    use \Anax\Common\ConfigureTrait,
         \Anax\Common\AppInjectableTrait;
 
 

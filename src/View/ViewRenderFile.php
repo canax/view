@@ -6,10 +6,10 @@ namespace Anax\View;
  * A view connected to a template file.
  *
  */
-class ViewRenderFile implements Anax\Common\AppInjectableInterface
+class ViewRenderFile implements \Anax\Common\AppInjectableInterface
 {
     use ViewHelperTrait,
-        Anax\Common\AppInjectableTrait;
+        \Anax\Common\AppInjectableTrait;
 
 
 

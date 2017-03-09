@@ -8,34 +8,15 @@ namespace Anax\View;
 class ViewTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Provider for test values
+     * Test
      *
-     * @return array
+     * @expectedException \Anax\View\Exception
      */
-    public function providerClassList()
+    public function testInvalidViewType()
     {
-        return [
-            [
-                [ null ],
-                "class=\"\"",
-            ],
-            [
-                [ "a" ],
-                "class=\"a\"",
-            ],
-            [
-                [ "a", "b" ],
-                "class=\"a b\"",
-            ],
-            [
-                [ "a", "b", ["c", "d"] ],
-                "class=\"a b c d\"",
-            ],
-            [
-                [ [], "a" ],
-                "class=\"a\"",
-            ],
-        ];
+        $view = new View();
+        $view->set("void", [], 0, "not-valid-typ");
+        $view->render();
     }
 
 
@@ -43,14 +24,30 @@ class ViewTest extends \PHPUnit_Framework_TestCase
     /**
      * Test
      *
-     * @return void
-     *
-     * @dataProvider providerClassList
+     * @expectedException \Anax\View\Exception
      */
-    public function testClassList($args, $exp)
+    public function testMissingApp()
     {
-        $view = new CView();
-        $res = $view->classList(...$args);
-        $this->assertEquals($exp, $res, "Classlist did not match.");
+        $view = new View();
+        $view->set("void", [], 0, "file");
+        $view->render();
+    }
+
+
+
+    /**
+     * Test
+     */
+    public function testRenderString()
+    {
+        $view = new View();
+        $exp = "a string";
+        $view->set($exp, [], 0, "string");
+        
+        ob_start();
+        $view->render();
+        $res = ob_get_contents();
+        $this->assertEquals($exp, $res);
+        ob_end_clean();
     }
 }

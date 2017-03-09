@@ -69,14 +69,17 @@ class View
     /**
      * Render the view.
      *
-     * @param object $app with access to the framework resources.
+     * @param object $app optional with access to the framework resources.
      *
      * @return void
      */
-    public function render($app)
+    public function render($app = null)
     {
         switch ($this->type) {
             case "file":
+                if (!$app) {
+                    throw new Exception("View missing \$app.");
+                }
                 $viewRender = new ViewRenderFile();
                 $viewRender->setApp($app);
                 $viewRender->render($this->template, $this->templateData);
@@ -97,7 +100,7 @@ class View
                 break;
 
             default:
-                throw new Exception("Not a valid template type: ${this->type}");
+                throw new Exception("Not a valid template type: {$this->type}");
         }
     }
 

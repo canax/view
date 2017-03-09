@@ -6,7 +6,7 @@ namespace Anax\View;
  * Trait with view helpers, provided by the ThemeEngine to the views.
  *
  */
-trait ViewHelper
+trait ViewHelperTrait
 {
     /**
      * Render a view with an optional data set of variables.
