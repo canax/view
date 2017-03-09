@@ -170,7 +170,7 @@ class ViewContainer implements \Anax\Common\AppInjectableInterface
      *
      * @param string $region which region to use
      *
-     * @return $this
+     * @return void
      */
     public function render($region = "main")
     {
@@ -192,7 +192,5 @@ class ViewContainer implements \Anax\Common\AppInjectableInterface
         foreach ($this->views[$region] as $view) {
             $view->render($this->app);
         }
-
-        return $this;
     }
 }
