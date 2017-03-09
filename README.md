@@ -8,7 +8,7 @@ Anax View
 [![Build Status](https://scrutinizer-ci.com/g/canax/view/badges/build.png?b=master)](https://scrutinizer-ci.com/g/canax/view/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/canax/view/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/canax/view/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/canax/view/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/canax/view/?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/eeb9a3c9-f094-41db-9633-1197e2e8e43e/mini.png)](https://insight.sensiolabs.com/projects/eeb9a3c9-f094-41db-9633-1197e2e8e43e)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/6dc5e622-2087-4fb5-969e-1609eed3c85b/mini.png)](https://insight.sensiolabs.com/projects/6dc5e622-2087-4fb5-969e-1609eed3c85b)
 
 Anax View module.
 
