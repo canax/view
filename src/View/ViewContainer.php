@@ -18,7 +18,6 @@ class ViewContainer implements \Anax\Common\AppInjectableInterface
      *
      */
     private $views = []; // Array for all views
-    private $app;        // To supply to views needing framework resources.
 
 
 
