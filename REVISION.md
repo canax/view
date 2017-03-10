@@ -1,6 +1,13 @@
 Revision history
 =================================
 
+v1.0.3 (2017-03-10)
+---------------------------------
+
+* Added default view library as example in view/default.
+* Added config in config/view.php.
+
+
 v1.0.2 (2017-03-09)
 ---------------------------------
 
