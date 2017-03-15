@@ -11,6 +11,8 @@
     </description>
 
     <exclude-pattern>vendor</exclude-pattern>
+    <exclude-pattern>htdocs</exclude-pattern>
+    <exclude-pattern>cache</exclude-pattern>
 
     <rule ref="rulesets/cleancode.xml">
         <exclude name="BooleanArgumentFlag" />

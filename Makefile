@@ -63,7 +63,7 @@ prepare:
 
 
 # target: clean              - Removes generated files and directories.
-.PHONY:  clean
+.PHONY: clean
 clean:
 	@$(call HELPTEXT,$@)
 	rm -rf build
@@ -72,9 +72,9 @@ clean:
 
 # target: clean-all          - Removes generated files and directories.
 .PHONY:  clean-all
-clean-all:
+clean-all: clean
 	@$(call HELPTEXT,$@)
-	rm -rf .bin build vendor composer.lock
+	rm -rf .bin vendor composer.lock
 
 
 
@@ -139,7 +139,8 @@ tag-prepare:
 .PHONY: install-tools-php
 install-tools-php:
 	@$(call HELPTEXT,$@)
-	curl -Lso $(PHPDOC) https://www.phpdoc.org/phpDocumentor.phar && chmod 755 $(PHPDOC)
+	#curl -Lso $(PHPDOC) https://www.phpdoc.org/phpDocumentor.phar && chmod 755 $(PHPDOC)
+	curl -Lso $(PHPDOC) https://github.com/phpDocumentor/phpDocumentor2/releases/download/v2.9.0/phpDocumentor.phar && chmod 755 $(PHPDOC)
 
 	curl -Lso $(PHPCS) https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && chmod 755 $(PHPCS)
 
@@ -153,8 +154,7 @@ install-tools-php:
 
 	curl -Lso $(BEHAT) https://github.com/Behat/Behat/releases/download/v3.3.0/behat.phar && chmod 755 $(BEHAT)
 
-	composer install
-
+	[ ! -f composer.json ] || composer install
 
 
 
@@ -162,13 +162,14 @@ install-tools-php:
 .PHONY: check-tools-php
 check-tools-php:
 	@$(call HELPTEXT,$@)
-	which $(PHPUNIT) && $(PHPUNIT) --version
-	which $(PHPLOC) && $(PHPLOC) --version
-	which $(PHPCS) && $(PHPCS) --version && echo
-	which $(PHPMD) && $(PHPMD) --version && echo
-	which $(PHPCBF) && $(PHPCBF) --version && echo
-	which $(PHPDOC) && $(PHPDOC) --version && echo
-	which $(BEHAT) && $(BEHAT) --version && echo
+	php --version && echo
+	$(PHPUNIT) --version
+	$(PHPLOC) --version
+	$(PHPCS) --version && echo
+	$(PHPMD) --version && echo
+	$(PHPCBF) --version && echo
+	$(PHPDOC) --version && echo
+	$(BEHAT) --version && echo
 
 
 
@@ -176,7 +177,7 @@ check-tools-php:
 .PHONY: phpunit
 phpunit: prepare
 	@$(call HELPTEXT,$@)
-	$(PHPUNIT) --configuration .phpunit.xml
+	[ ! -d "test" ] || $(PHPUNIT) --configuration .phpunit.xml
 
 
 
@@ -184,7 +185,11 @@ phpunit: prepare
 .PHONY: phpcs
 phpcs: prepare
 	@$(call HELPTEXT,$@)
+ifneq ($(wildcard test),)
 	$(PHPCS) --standard=.phpcs.xml | tee build/phpcs
+else
+	$(PHPCS) --standard=.phpcs.xml src | tee build/phpcs
+endif
 
 
 
@@ -192,7 +197,11 @@ phpcs: prepare
 .PHONY: phpcbf
 phpcbf:
 	@$(call HELPTEXT,$@)
+ifneq ($(wildcard test),)
 	$(PHPCBF) --standard=.phpcs.xml
+else
+	$(PHPCBF) --standard=.phpcs.xml src
+endif
 
 
 
@@ -216,7 +225,7 @@ phploc: prepare
 .PHONY: phpdoc
 phpdoc:
 	@$(call HELPTEXT,$@)
-	$(PHPDOC) --config=.phpdoc.xml
+	[ ! -d doc ] || $(PHPDOC) --config=.phpdoc.xml
 
 
 
@@ -225,3 +234,11 @@ phpdoc:
 behat:
 	@$(call HELPTEXT,$@)
 	[ ! -d features ] || $(BEHAT)
+
+
+
+# target: theme              - Execute make build install in theme directory.
+.PHONY: theme
+theme:
+	@$(call HELPTEXT,$@)
+	[ ! -d theme ] || $(MAKE) --directory=theme build install
