@@ -118,19 +118,19 @@ $class .= $sidebarRight ? "has-sidebar-right " : "";
 $class .= empty($class) ? "" : "has-sidebar";
 ?>
 
-            <?php if ($sidebarLeft): ?>
+            <?php if ($sidebarLeft) : ?>
             <div class="sidebar sidebar-left <?= $class ?>" role="complementary">
                 <?php $this->renderRegion("sidebar-left")?>
             </div>
             <?php endif; ?>
 
-            <?php if ($this->regionHasContent("main")): ?>
+            <?php if ($this->regionHasContent("main")) : ?>
             <main class="main <?= $class ?>" role="main">
                 <?php $this->renderRegion("main")?>
             </main>
             <?php endif; ?>
 
-            <?php if ($sidebarRight): ?>
+            <?php if ($sidebarRight) : ?>
             <div class="sidebar sidebar-right <?= $class ?>" role="complementary">
                 <?php $this->renderRegion("sidebar-right")?>
             </div>
@@ -192,9 +192,12 @@ $class .= empty($class) ? "" : "has-sidebar";
 
 
 <!-- render javascripts -->
-<?php if (isset($javascripts)) : foreach ($javascripts as $javascript) : ?>
+<?php if (isset($javascripts)) :
+    foreach ($javascripts as $javascript) : ?>
 <script async src="<?=$this->asset($javascript)?>"></script>
-<?php endforeach; endif; ?>
+<?php
+    endforeach;
+endif; ?>
 
 
 

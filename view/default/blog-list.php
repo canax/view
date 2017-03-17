@@ -8,7 +8,7 @@ if (isset($class)) {
 // Labels
 $readmoreLabel = isset($label["readmore"])
     ? $label["readmore"]
-    : t("Read more »"); 
+    : t("Read more »");
 
 // Common date format
 $dateFormat = isset($dateFormat) ? $dateFormat : "m/d/Y";
@@ -55,20 +55,21 @@ $dateFormat = isset($dateFormat) ? $dateFormat : "m/d/Y";
             
             <p class="readmore"><a href="<?= $urlToPost ?>"><?= $readmoreLabel ?></a></p>
 
-            <?php 
+            <?php
             $this->renderView("default/blog-meta-footer", [
                 "category" => $category,
-            ]); 
+            ]);
             ?>
 
         </section>
-    <?php endforeach; ?>
+    <?php
+    endforeach; ?>
 
     <footer>
-        <?php 
+        <?php
         $this->renderView("default/blog-toc-next-prev-page", [
             "meta" => $meta,
-        ]); 
+        ]);
         ?>
     </footer>
 </section>

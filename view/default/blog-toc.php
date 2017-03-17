@@ -28,10 +28,10 @@ $title = isset($title) && !empty($title)
     </ul>
 
     <footer>
-        <?php 
+        <?php
         $this->renderView("default/blog-toc-next-prev-page", [
             "meta" => $meta,
-        ]); 
+        ]);
         ?>
     </footer>
 

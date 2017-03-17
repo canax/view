@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Prepare classes
 $classes[] = "article blog-post";
 if (isset($class)) {
@@ -48,10 +48,10 @@ $content = preg_replace("#<h1(.*?)>(.*?)</h1>#", $header, $content, 1);
 
     <?= $content ?>
 
-    <?php 
+    <?php
     $this->renderView("default/blog-meta-footer", [
         "category" => $category,
-    ]); 
+    ]);
     ?>
 
 </article>

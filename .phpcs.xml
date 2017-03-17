@@ -2,6 +2,7 @@
 <ruleset name="PHPCS rule set">
     <description>Custom rule set.</description>
 
+    <file>view</file>
     <file>src</file>
     <file>test</file>
 

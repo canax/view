@@ -1,6 +1,6 @@
-<?php 
+<?php
 $class = isset($class)
-    ? $class 
+    ? $class
     : null;
 
 $alt = isset($alt)

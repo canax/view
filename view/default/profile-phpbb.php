@@ -6,7 +6,7 @@ $gravatarHome  = "//www.gravatar.com/$gravatar";
 $gravatarImage = "//www.gravatar.com/avatar/$gravatar?r=pg&amp;s=40&amp;d=wavatar";
 
 
- ?><span class="profile-phpbb">
+?><span class="profile-phpbb">
     <?php if ($is_anonymous) : ?>
         <span class="login">
             <a href="/forum/ucp.php?mode=login">

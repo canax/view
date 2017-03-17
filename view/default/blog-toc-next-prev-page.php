@@ -27,7 +27,7 @@ if (!$previousPageUrl && !$nextPageUrl) {
     <div class="next">
         <?php if ($nextPageUrl) : ?>
         <a href="<?= $this->url($nextPageUrl) ?>"><?= $nextStr ?></a>
-        <?php else: ?>
+        <?php else : ?>
         &nbsp;
         <?php endif; ?>
     </div>

@@ -1,1 +1,3 @@
-<p>404 Not Found.</p>
+<?php
+
+?><p>404 Not Found.</p>
