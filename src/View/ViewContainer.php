@@ -14,11 +14,8 @@ class ViewContainer implements
 
 
 
-    /**
-     * Properties
-     *
-     */
-    private $views = []; // Array for all views
+    /** @var [] $views Array for all views. */
+    private $views = [];
 
 
 
