@@ -46,14 +46,22 @@ class ViewContainer implements
 
 
     /**
-     * Add a view to be included as a template file.
+     * Add (create) a view to be included, pass optional data and put the
+     * view in an optional specific region (default region is "main") and
+     * pass an optional sort value where the highest value is rendered first.
+     * The $template can be a:
+     *  filename (string),
+     *  callback (array with key callback set to a callable array),
+     *  view array (key value array with template, data, region, sort)
      *
-     * @param string $template the name of the template file to include
-     * @param array  $data     variables to make available to the view, default is empty
-     * @param string $region   which region to attach the view
-     * @param int    $sort     which order to display the views
+     * @param string  $template the name of the template file to include.
+     * @param []      $data     variables to make available to the view,
+     *                          default is empty.
+     * @param string  $region   which region to attach the view, default is
+     *                          "main".
+     * @param integer $sort     which order to display the views.
      *
-     * @return $this
+     * @return self for chaining.
      */
     public function add($template, $data = [], $region = "main", $sort = 0)
     {
@@ -67,7 +75,7 @@ class ViewContainer implements
             $tpl = $this->getTemplateFile($template);
             $type = "file";
         } elseif (is_array($template)) {
-            // Can be array with complete view or array with callback
+            // Can be array with complete view or array with callable callback
             $tpl = $template;
             $type = null;
             $region = isset($tpl["region"])

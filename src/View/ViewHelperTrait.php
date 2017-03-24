@@ -9,6 +9,35 @@ namespace Anax\View;
 trait ViewHelperTrait
 {
     /**
+     * Shortcut to create an url for a static asset.
+     *
+     * @param string $url part of url to use when creating the url.
+     *
+     * @return string as resulting url.
+     */
+    public function asset($url = null)
+    {
+        return $this->app->url->asset($url);
+    }
+
+
+
+    /**
+     * Shortcut to create an url for routing in the framework.
+     *
+     * @param string $route route to use for creating the url where "" or null
+     *                      means baseurl to current frontcontroller.
+     *
+     * @return string as resulting url.
+     */
+    public function url($url = null)
+    {
+        return $this->app->url->create($url);
+    }
+
+
+
+    /**
      * Render a view with an optional data set of variables.
      *
      * @param string $template the template file, or array
@@ -49,35 +78,6 @@ trait ViewHelperTrait
         }
 
         return "class=\"" . implode(" ", $classes) . "\"";
-    }
-
-
-
-    /**
-     * Create an url for a static asset.
-     *
-     * @param string $uri part of uri to use when creating an url.
-     *
-     * @return string as resulting url.
-     */
-    public function asset($uri = null)
-    {
-        return $this->di->get("url")->asset($uri);
-    }
-
-
-
-    /**
-     * Create an url and prepending the baseUrl.
-     *
-     * @param string $uri part of uri to use when creating an url. "" or null
-     *                    means baseurl to current frontcontroller.
-     *
-     * @return string as resulting url.
-     */
-    public function url($uri = null)
-    {
-        return $this->di->get("url")->create($uri);
     }
 
 
