@@ -1,6 +1,18 @@
 Revision history
 =================================
 
+v1.0.6* (2017-03-24)
+---------------------------------
+
+* ViewContainer implements ConfigureInterface.
+
+
+v1.0.6 (2017-03-17)
+---------------------------------
+
+* Update Makefile and configuration of phpcs.
+
+
 v1.0.5 (2017-03-17)
 ---------------------------------
 

@@ -4,9 +4,10 @@ namespace Anax\View;
 
 /**
  * A view container, store all views per region, render at will.
- *
  */
-class ViewContainer implements \Anax\Common\AppInjectableInterface
+class ViewContainer implements
+    \Anax\Common\ConfigureInterface,
+    \Anax\Common\AppInjectableInterface
 {
     use \Anax\Common\ConfigureTrait,
         \Anax\Common\AppInjectableTrait;
