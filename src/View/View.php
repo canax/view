@@ -22,12 +22,12 @@ class View
     /**
      * Set values for the view.
      *
-     * @param []|string $template the template file, or array
-     * @param []        $data     variables to make available to the
-     *                            view, default is empty
-     * @param integer   $sort     which order to display the views,
-     *                            if suitable
-     * @param string    $type     which type of view
+     * @param array|string $template the template file, or array
+     * @param array        $data     variables to make available to the
+     *                               view, default is empty
+     * @param integer      $sort     which order to display the views,
+     *                               if suitable
+     * @param string       $type     which type of view
      *
      * @return self
      */
