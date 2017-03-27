@@ -55,7 +55,7 @@ class ViewContainer implements
      *  view array (key value array with template, data, region, sort)
      *
      * @param string  $template the name of the template file to include.
-     * @param []      $data     variables to make available to the view,
+     * @param array   $data     variables to make available to the view,
      *                          default is empty.
      * @param string  $region   which region to attach the view, default is
      *                          "main".
@@ -198,5 +198,22 @@ class ViewContainer implements
         foreach ($this->views[$region] as $view) {
             $view->render($this->app);
         }
+    }
+
+
+    /**
+     * Render all views for a specific region and buffer the result.
+     *
+     * @param string $region which region to use.
+     *
+     * @return string with the buffered results.
+     */
+    public function renderBuffered($region = "main")
+    {
+        ob_start();
+        $this->render($region);
+        $res = ob_get_contents();
+        ob_end_clean();
+        return $res;
     }
 }

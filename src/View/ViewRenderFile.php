@@ -21,8 +21,7 @@ class ViewRenderFile implements \Anax\Common\AppInjectableInterface
      *
      * @return void
      *
-     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
-     *
+     * @throws \Anax\View\Exception when template file is not found.
      */
     public function render($file, $data)
     {
@@ -30,7 +29,7 @@ class ViewRenderFile implements \Anax\Common\AppInjectableInterface
             throw new Exception("Could not find template file: " . $this->template);
         }
 
-        $app = $this->app; // PHPMD To be used within the viewfile.
+        $data["app"] = $this->app;
         extract($data);
         include $file;
     }

@@ -11,11 +11,11 @@ trait ViewHelperTrait
     /**
      * Shortcut to create an url for a static asset.
      *
-     * @param string $url part of url to use when creating the url.
+     * @param string $url url to use when creating the url.
      *
      * @return string as resulting url.
      */
-    public function asset($url = null)
+    public function asset($url = "")
     {
         return $this->app->url->asset($url);
     }
@@ -25,12 +25,11 @@ trait ViewHelperTrait
     /**
      * Shortcut to create an url for routing in the framework.
      *
-     * @param string $route route to use for creating the url where "" or null
-     *                      means baseurl to current frontcontroller.
+     * @param null|string $url url to use when creating the url.
      *
      * @return string as resulting url.
      */
-    public function url($url = null)
+    public function url($url = "")
     {
         return $this->app->url->create($url);
     }
@@ -48,11 +47,38 @@ trait ViewHelperTrait
      */
     public function renderView($template, $data = [])
     {
-        $template = $this->di->get("views")->getTemplateFile($template);
-        $view = $this->di->get("view");
-        $view->setDI($this->di);
+        $view = new View();
+        $template = $this->app->view->getTemplateFile($template);
         $view->set($template, $data);
         $view->render();
+    }
+
+
+
+    /**
+     * Check if the region in the view container has views to render.
+     *
+     * @param string $region to check
+     *
+     * @return boolean true or false
+     */
+    public function regionHasContent($region)
+    {
+        return $this->app->view->hasContent($region);
+    }
+
+
+
+    /**
+     * Render views, from the view container, in the region.
+     *
+     * @param string $region to render in
+     *
+     * @return boolean true or false
+     */
+    public function renderRegion($region)
+    {
+        $this->app->view->render($region);
     }
 
 
@@ -67,7 +93,7 @@ trait ViewHelperTrait
     public function classList(...$args)
     {
         $classes = [];
-
+    
         foreach ($args as $arg) {
             if (empty($arg)) {
                 continue;
@@ -76,7 +102,7 @@ trait ViewHelperTrait
             }
             $classes = array_merge($classes, $arg);
         }
-
+    
         return "class=\"" . implode(" ", $classes) . "\"";
     }
 
@@ -89,35 +115,19 @@ trait ViewHelperTrait
      */
     public function currentUrl()
     {
-        return $this->di->get("request")->getCurrentUrl(false);
+        return $this->app->request->getCurrentUrl(false);
     }
 
 
 
     /**
-     * Check if the region in the view container has views to render.
+     * Get current route.
      *
-     * @param string $region to check
-     *
-     * @return boolean true or false
+     * @return string as resulting route.
      */
-    public function regionHasContent($region)
+    public function currentRoute()
     {
-        return $this->di->get("views")->hasContent($region);
-    }
-
-
-
-    /**
-     * Render views, from the view container, in the region.
-     *
-     * @param string $region to render in
-     *
-     * @return boolean true or false
-     */
-    public function renderRegion($region)
-    {
-        $this->di->get("views")->render($region);
+        return $this->app->request->getRoute();
     }
 
 
@@ -129,11 +139,11 @@ trait ViewHelperTrait
      *
      * @return array with values to extract in view.
      */
-    public function getContentForRoute($route)
-    {
-        $content = $this->di->get("content")->contentForInternalRoute($route);
-        return $content->views["main"]["data"];
-    }
+    // public function getContentForRoute($route)
+    // {
+    //     $content = $this->di->get("content")->contentForInternalRoute($route);
+    //     return $content->views["main"]["data"];
+    // }
 
 
 
@@ -148,10 +158,10 @@ trait ViewHelperTrait
      *
      * @return array with values to extract in view.
      */
-    public function wrapElementWithStartEnd($text, $tag, $start, $end, $count)
-    {
-        return $this->di->get("textFilter")->wrapElementWithStartEnd($text, $tag, $start, $end, $count);
-    }
+    // public function wrapElementWithStartEnd($text, $tag, $start, $end, $count)
+    // {
+    //     return $this->di->get("textFilter")->wrapElementWithStartEnd($text, $tag, $start, $end, $count);
+    // }
 
 
 
@@ -166,10 +176,10 @@ trait ViewHelperTrait
      *
      * @return array with values to extract in view.
      */
-    public function wrapElementContentWithStartEnd($text, $tag, $start, $end, $count)
-    {
-        return $this->di->get("textFilter")->wrapElementContentWithStartEnd($text, $tag, $start, $end, $count);
-    }
+    // public function wrapElementContentWithStartEnd($text, $tag, $start, $end, $count)
+    // {
+    //     return $this->di->get("textFilter")->wrapElementContentWithStartEnd($text, $tag, $start, $end, $count);
+    // }
 
 
 
@@ -180,26 +190,26 @@ trait ViewHelperTrait
      *
      * @return array with values for showing the date.
      */
-    public function getPublishedDate($dates)
-    {
-        $defaults = [
-            "revision" => [],
-            "published" => null,
-            "updated" => null,
-            "created" => null,
-        ];
-        $dates = array_merge($defaults, $dates);
-        
-        if ($dates["revision"]) {
-            return [t("Latest revision"), key($dates["revision"])];
-        } elseif ($dates["published"]) {
-            return [t("Published"), $dates["published"]];
-        } elseif ($dates["updated"]) {
-            return [t("Updated"), $dates["updated"]];
-        } elseif ($dates["created"]) {
-            return [t("Created"), $dates["created"]];
-        }
-
-        return [t("Missing pubdate."), null];
-    }
+    // public function getPublishedDate($dates)
+    // {
+    //     $defaults = [
+    //         "revision" => [],
+    //         "published" => null,
+    //         "updated" => null,
+    //         "created" => null,
+    //     ];
+    //     $dates = array_merge($defaults, $dates);
+    //
+    //     if ($dates["revision"]) {
+    //         return [t("Latest revision"), key($dates["revision"])];
+    //     } elseif ($dates["published"]) {
+    //         return [t("Published"), $dates["published"]];
+    //     } elseif ($dates["updated"]) {
+    //         return [t("Updated"), $dates["updated"]];
+    //     } elseif ($dates["created"]) {
+    //         return [t("Created"), $dates["created"]];
+    //     }
+    //
+    //     return [t("Missing pubdate."), null];
+    // }
 }

@@ -1,9 +1,10 @@
 Revision history
 =================================
 
-v1.0.6* (2017-03-24)
+v1.0.7 (2017-03-27)
 ---------------------------------
 
+* Cleanup docblock.
 * ViewContainer implements ConfigureInterface.
 
 
