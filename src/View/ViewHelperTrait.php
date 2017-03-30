@@ -50,7 +50,7 @@ trait ViewHelperTrait
         $view = new View();
         $template = $this->app->view->getTemplateFile($template);
         $view->set($template, $data);
-        $view->render();
+        $view->render($this->app);
     }
 
 
