@@ -157,21 +157,6 @@ class ViewContainer implements
 
 
     /**
-     * Set the app object to inject into view rendering phase.
-     *
-     * @param object $app with framework resources.
-     *
-     * @return $this
-     */
-    public function setApp($app)
-    {
-        $this->app = $app;
-        return $this;
-    }
-
-
-
-    /**
      * Render all views for a specific region.
      *
      * @param string $region which region to use
