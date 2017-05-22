@@ -14,6 +14,69 @@ Anax View module.
 
 
 
+Note to reader
+------------------
+
+The module should be not be opinionated on how a view should be written and used.
+
+PHP is used as the basic template language for the views.
+
+The module should (future release) provide an interface to ease integration of other standalone template engines.
+
+The module might (future release) implement its own template language.
+
+
+
+Features
+------------------
+
+* A view is the smallest building block constructing the web page.
+* A view can include other views. A specific page view can include a header and a footer view.
+* The web page can be divided into regions and views can be attached to, and rendered in, a region.
+* A view can be constructed as a layout, specifying what regions to render views in.
+* A view can render any type of result and is not limited to HTML.
+* A view can call "back" into the framework for additional information retrieval.
+
+
+
+View
+------------------
+
+The view is the building blocks of a web page. A view contains HTML and uses PHP as a template language to echo out variables and carry out loops.
+
+**view/page.php**
+
+```php
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title><?= $title ?></title>
+
+<navbar>
+<?php foreach ($links as $link) : ?>
+    <a href="<?= $link["href"] ?>"><?= $link["text"] ?></a>
+<?php endforeach; ?> 
+</navbar>
+
+</html>
+```
+
+A view is usually created within a route or a controller responding to a route. A set of data variables can be sent to the route.
+
+
+There is a view container holding an organised set of views. The views are the basic, singular, building blocks of the web page to be rendered.
+
+The aim of the 
+
+
+
+The view container is a factory for views and can create new views through
+
+A view is the smallest part that can be rendered
+
+
+
+
 License
 ------------------
 
