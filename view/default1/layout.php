@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title><?= $title ?></title>
+
+    <?php foreach ($stylesheets as $stylesheet) : ?>
+    <link rel="stylesheet" type="text/css" href="<?= $this->asset($stylesheet) ?>">
+    <?php endforeach; ?>
+
 </head>
 <body>
 
