@@ -1,10 +1,11 @@
 Revision history
 =================================
 
-v1.0.9* (2017-04-04)
+v1.0.9 (2017-06-16)
 ---------------------------------
 
 * Remove stray setApp from ViewContainer.
+* Add new directory for views to prepare move from older versions.
 
 
 v1.0.8 (2017-03-30)
