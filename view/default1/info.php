@@ -5,7 +5,7 @@
 <p>The following routes are loaded:</p>
 <ul>
 <?php foreach ($app->router->getAll() as $route) : ?>
-    <li><?= $route->getRule() ?></li>
+    <li>"<?= $route->getRule() ?>" (<?= $route->getRequestMethod() ?>)</li>
 <?php endforeach; ?>
 </ul>
 
