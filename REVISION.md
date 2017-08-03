@@ -1,6 +1,14 @@
 Revision history
 =================================
 
+v1.0.12 (2017-06-27)
+---------------------------------
+
+* Replace view default1/404 with default1/http_status_code.
+* Add own view dir to config path.
+* Add navbar region to default1/layout.
+
+
 v1.0.11 (2017-06-27)
 ---------------------------------
 
