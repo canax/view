@@ -17,6 +17,12 @@
 </div>
 <?php endif; ?>
 
+<?php if ($this->regionHasContent("navbar")) : ?>
+<div class="navbar-wrap">
+    <?php $this->renderRegion("navbar") ?>
+</div>
+<?php endif; ?>
+
 <?php if ($this->regionHasContent("main")) : ?>
 <div class="main-wrap">
     <?php $this->renderRegion("main") ?>
