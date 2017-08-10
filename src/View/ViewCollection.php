@@ -35,7 +35,7 @@ class ViewCollection implements
      *                           or a file to be included which returns such
      *                           an array.
      *
-     * @throws Anax\View\Exception when template file is missing
+     * @throws Anax\Configure\Exception when template file is missing
      *
      * @return string as path to the template file
      */
