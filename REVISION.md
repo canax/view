@@ -1,6 +1,13 @@
 Revision history
 =================================
 
+v1.0.13 (2017-08-10)
+---------------------------------
+
+* Adding a version supporting DI using classes ViewCollection, View2 and config/viewdi.php.
+* Update configfile view.php to include helper-functions for use in the view template files.
+
+
 v1.0.12 (2017-06-27)
 ---------------------------------
 

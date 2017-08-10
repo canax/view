@@ -2,14 +2,19 @@
 
 namespace Anax\View;
 
+use \Anax\Common\AppInjectableInterface;
+use \Anax\Common\AppInjectableTrait;
+
 /**
- * A view connected to a template file.
- *
+ * Render a view based on a template file and a dataset.
  */
-class ViewRenderFile implements \Anax\Common\AppInjectableInterface
+class ViewRenderFile implements
+    ViewRenderFileInterface,
+    ViewRenderFileInterface,
+    AppInjectableInterface
 {
     use ViewHelperTrait,
-        \Anax\Common\AppInjectableTrait;
+        AppInjectableTrait;
 
 
 

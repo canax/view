@@ -2,13 +2,13 @@
 
 namespace Anax\View;
 
-use \Anax\View\ViewRenderFile;
+use \Anax\View\ViewRenderFile2 as ViewRenderFile;
 use \Anax\View\Exception;
 
 /**
- * A view connected to a template file.
+ * A view connected to a template file, supporting Anax DI.
  */
-class View
+class View2
 {
     /**
      * @var $template     Template file or array
@@ -73,19 +73,19 @@ class View
     /**
      * Render the view.
      *
-     * @param object $app optional with access to the framework resources.
+     * @param object $di optional with access to the framework resources.
      *
      * @return void
      */
-    public function render($app = null)
+    public function render($di = null)
     {
         switch ($this->type) {
             case "file":
-                if (!$app) {
-                    throw new Exception("View missing \$app.");
+                if ($di->has("viewRenderFile")) {
+                    $viewRender = $di->get("viewRenderFile");
+                } else {
+                    $viewRender = new ViewRenderFile($di);
                 }
-                $viewRender = new ViewRenderFile();
-                $viewRender->setApp($app);
                 $viewRender->render($this->template, $this->templateData);
                 break;
 
