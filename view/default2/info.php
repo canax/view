@@ -10,7 +10,7 @@ $router = $di->get("router");
 <p>The following routes are loaded:</p>
 <ul>
 <?php foreach ($router->getAll() as $route) : ?>
-    <li>"<?= $route->getRule() ?>" (<?= $route->getRequestMethod() ?>) <?= $route->getName() ?></li>
+    <li>"<?= $route->getRule() ?>" (<?= $route->getRequestMethod() ?>) <?= $route->getInfo() ?></li>
 <?php endforeach; ?>
 </ul>
 
