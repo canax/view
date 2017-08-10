@@ -1,7 +1,6 @@
 <?php
 /**
- * Config-file for view container.
- *
+ * Configuration file for view container.
  */
 return [
 
@@ -16,4 +15,10 @@ return [
     //"suffix" => ".tpl.php",
     "suffix" => ".php",
 
+    // Include files before including the view template file.
+    // Use this to expose helper functions for the view.
+    "include" => [
+        //ANAX_APP_PATH . "/view/function/helper.php",
+        ANAX_INSTALL_PATH . "/vendor/anax/view/src/View/ViewHelperFunctions.php",
+    ]
 ];
