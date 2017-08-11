@@ -6,6 +6,7 @@ v1.0.14* (2017-08-10)
 ---------------------------------
 
 * Change view info to use Route->getInfo().
+* Add info about di loaded services.
 
 
 v1.0.13 (2017-08-10)
