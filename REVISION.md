@@ -2,9 +2,10 @@ Revision history
 =================================
 
 
-v1.0.14* (2017-08-10)
+v1.0.14 (2017-08-14)
 ---------------------------------
 
+* Bug: Double codeline in ViewRenderFile, fix #2.
 * Change view info to use Route->getInfo().
 * Add info about di loaded services.
 
