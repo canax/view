@@ -2,7 +2,8 @@
 
 namespace Anax\View;
 
-use \Anax\View\View2 as View;
+#use \Anax\View\View2 as View;
+use \Anax\View\View2;
 use \Anax\Configure\ConfigureInterface;
 use \Anax\Configure\ConfigureTrait;
 use \Anax\DI\InjectionAwareInterface;
@@ -101,7 +102,7 @@ class ViewCollection implements
             return $this;
         }
 
-        $view = new View();
+        $view = new View2();
 
         if (is_string($template)) {
             $tpl = $this->getTemplateFile($template);
@@ -145,7 +146,7 @@ class ViewCollection implements
      */
     public function addCallback($callback, $data = [], $region = "main", $sort = 0)
     {
-        $view = new View();
+        $view = new View2();
         $view->set(["callback" => $callback], $data, $sort, "callback");
         $this->views[$region][] = $view;
 
@@ -165,7 +166,7 @@ class ViewCollection implements
      */
     public function addString($content, $region = "main", $sort = 0)
     {
-        $view = new View();
+        $view = new View2();
         $view->set($content, [], $sort, "string");
         $this->views[$region][] = $view;
         

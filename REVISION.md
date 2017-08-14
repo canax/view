@@ -2,6 +2,13 @@ Revision history
 =================================
 
 
+v1.0.15* (2017-08-14)
+---------------------------------
+
+* Phpmd config to ignore short name for $di.
+* Make anax/di and anax/configure part of composer.json to pass tests.
+
+
 v1.0.14 (2017-08-14)
 ---------------------------------
 

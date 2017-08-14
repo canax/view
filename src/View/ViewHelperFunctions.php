@@ -2,7 +2,8 @@
 
 namespace Anax\View;
 
-use \Anax\View\View2 as View;
+#use \Anax\View\View2 as View;
+use \Anax\View\View2;
 
 /**
  * Define helper functions to include before processing the view template.
@@ -51,7 +52,7 @@ function url($url = "")
 function renderView($template, $data = [])
 {
     global $di;
-    $view = new View();
+    $view = new View2();
     $template = $di->get("view")->getTemplateFile($template);
     $view->set($template, $data);
     $view->render($this->app);
