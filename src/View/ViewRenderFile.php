@@ -10,7 +10,6 @@ use \Anax\Common\AppInjectableTrait;
  */
 class ViewRenderFile implements
     ViewRenderFileInterface,
-    ViewRenderFileInterface,
     AppInjectableInterface
 {
     use ViewHelperTrait,
