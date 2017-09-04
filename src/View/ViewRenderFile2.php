@@ -41,6 +41,7 @@ class ViewRenderFile2 implements
         global $app;
         $di = $this->di;
         extract($data);
+        unset($data);
         require $file;
     }
 

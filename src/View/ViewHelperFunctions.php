@@ -138,3 +138,37 @@ function currentRoute()
     global $di;
     return $di->get("request")->getRoute();
 }
+
+
+
+/**
+ * Show variables/functions that are currently defined and can
+ * be used within the view. Call the function with get_defined_vars()
+ * as the parameter.
+ *
+ * @param array $variables should be the retiurned value from
+ *                         get_defined_vars()
+ *
+ * @return string showing variables.
+ */
+function showEnvironment($variables)
+{
+    $all = array_keys($variables);
+    sort($all);
+    $res = "<pre>\nVariables (var_dump them for more information):\n";
+    foreach ($all as $var) {
+        $variable = $variables[$var];
+        $res .= "  $var (" . gettype($variable) . ")";
+        if (is_integer($variable) || is_double($variable) ) {
+            $res .= ": $variable";
+        } elseif (is_string($variable)) {
+            $res .= ": \"$variable\"";
+        } elseif (is_bool($variable)) {
+            $res .= ": " . ( $variable ? "true" : "false" );
+        }
+        $res .= "\n";
+    }
+    $res .= "</pre>";
+
+    return $res;
+}
