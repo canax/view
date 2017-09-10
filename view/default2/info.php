@@ -11,11 +11,16 @@ $activeServices = $di->getActiveServices();
 <h2>Routes loaded</h2>
 
 <p>The following routes are loaded:</p>
-<ul>
+<table>
+    <tr><th>Path</th><th>Method</th><th>Description</th></tr>
 <?php foreach ($router->getAll() as $route) : ?>
-    <li>"<?= $route->getRule() ?>" (<?= $route->getRequestMethod() ?>) <?= $route->getInfo() ?></li>
+    <tr>
+        <td><code>"<?= $route->getRule() ?>"</code></td>
+        <td><code><?= $route->getRequestMethod() ?></code></td>
+        <td><?= $route->getInfo() ?></td>
+    </tr>
 <?php endforeach; ?>
-</ul>
+</table>
 
 <p>The following internal routes are loaded:</p>
 <ul>
