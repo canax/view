@@ -2,10 +2,10 @@ Revision history
 =================================
 
 
-v1.0.19* (2017-09-11)
+v1.0.19 (2017-09-11)
 ---------------------------------
 
-* mv book views to scaffold dir.
+* Move book views to scaffold dir.
 
 
 v1.0.18 (2017-09-10)
