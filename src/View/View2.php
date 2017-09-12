@@ -4,6 +4,7 @@ namespace Anax\View;
 
 use \Anax\View\ViewRenderFile2 as ViewRenderFile;
 use \Anax\View\Exception;
+use \Anax\DI\DIInterface;
 
 /**
  * A view connected to a template file, supporting Anax DI.
@@ -77,7 +78,7 @@ class View2
      *
      * @return void
      */
-    public function render($di = null)
+    public function render(DIInterface $di = null)
     {
         switch ($this->type) {
             case "file":

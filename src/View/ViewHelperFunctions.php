@@ -55,7 +55,7 @@ function renderView($template, $data = [])
     $view = new View2();
     $template = $di->get("view")->getTemplateFile($template);
     $view->set($template, $data);
-    $view->render($this->app);
+    $view->render($di);
 }
 
 

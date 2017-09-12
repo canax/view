@@ -10,7 +10,7 @@ namespace Anax\View;
 //echo showEnvironment(get_defined_vars());
 
 // Gather incoming variables and use default values if not set
-$books = isset($books) ? $books : null; 
+$books = isset($books) ? $books : null;
 
 // Create urls for navigation
 $urlToViewBooks = url("book");
