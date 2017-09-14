@@ -38,7 +38,7 @@ class ViewCollection implements
      *
      * @throws Anax\Configure\Exception when template file is missing
      *
-     * @return string as path to the template file
+     * @return self
      */
     public function configure($what)
     {
@@ -48,6 +48,7 @@ class ViewCollection implements
         foreach ($includes as $include) {
             require $include;
         }
+        return $this;
     }
 
 
