@@ -2,7 +2,7 @@ Revision history
 =================================
 
 
-v1.0.22 (2017-10-17)
+v1.0.23 (2017-10-17)
 ---------------------------------
 
 * Include view helpers only once, needed for unit tests, fix #3.
