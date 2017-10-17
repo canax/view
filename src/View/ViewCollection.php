@@ -46,7 +46,7 @@ class ViewCollection implements
 
         $includes = $this->getConfig("include", []);
         foreach ($includes as $include) {
-            require $include;
+            require_once $include;
         }
         return $this;
     }
