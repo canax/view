@@ -146,20 +146,26 @@ function currentRoute()
  * be used within the view. Call the function with get_defined_vars()
  * as the parameter.
  *
- * @param array $variables should be the retiurned value from
+ * @param array $variables should be the returned value from
  *                         get_defined_vars()
+ * @param array $functions should be the returned value from
+ *                         get_defined_functions()
  *
- * @return string showing variables.
+ * @return string showing variables and functions.
  */
-function showEnvironment($variables)
+function showEnvironment($variables, $functions)
 {
     $all = array_keys($variables);
     sort($all);
-    $res = "<pre>\nVariables (var_dump them for more information):\n";
+    $res = "<pre>\n"
+        . "VIEW DEVELOPMENT INFORMATION\n"
+        . "----------------------------\n"
+        . "Variables available:\n"
+        . " (var_dump each for more information):\n";
     foreach ($all as $var) {
         $variable = $variables[$var];
-        $res .= "  $var (" . gettype($variable) . ")";
-        if (is_integer($variable) || is_double($variable) ) {
+        $res .= "* $var (" . gettype($variable) . ")";
+        if (is_integer($variable) || is_double($variable)) {
             $res .= ": $variable";
         } elseif (is_string($variable)) {
             $res .= ": \"$variable\"";
@@ -168,6 +174,17 @@ function showEnvironment($variables)
         }
         $res .= "\n";
     }
+
+    $res .= "\nView helper functions available:\n (see " . __FILE__ . ")\n";
+    $namespace = strtolower(__NAMESPACE__);
+    $matches = array_filter(
+        $functions["user"],
+        function ($function) use ($namespace) {
+            return substr($function, 0, strlen($namespace)) === $namespace;
+        }
+    );
+    sort($matches);
+    $res .= "* " . implode(",\n* ", $matches);
     $res .= "</pre>";
 
     return $res;
