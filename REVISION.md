@@ -2,10 +2,11 @@ Revision history
 =================================
 
 
-v2.0.0-alpha.* (2018-08-01)
+v2.0.0-alpha.2 (2018-08-01)
 ---------------------------------
 
 * Fix year in LICENSE.txt.
+* Use v2.0.0 of anax/configure.
 
 
 
