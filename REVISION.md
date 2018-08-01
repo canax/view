@@ -8,6 +8,8 @@ v2.0.0-alpha.1 (2018-08-01)
 * Prepare to clean up waist and aline with release of Anax Lite v1.0.
 * Ignore composer.lock.
 * Update Makefile.
+* Update to require PHP 7.2 in composer.json.
+* Fix phpunit.
 
 
 

@@ -2,10 +2,12 @@
 
 namespace Anax\View;
 
+use \PHPUnit\Framework\TestCase;
+
 /**
  * Views.
  */
-class ViewHelperTest extends \PHPUnit_Framework_TestCase
+class ViewHelperTest extends TestCase
 {
     /**
      * Provider for test values
