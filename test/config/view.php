@@ -7,7 +7,7 @@ return [
     "paths" => [
         //ANAX_APP_PATH . "/view",
         ANAX_INSTALL_PATH . "/view",
-        ANAX_INSTALL_PATH . "/vendor/anax/view/view",
+        //ANAX_INSTALL_PATH . "/vendor/anax/view/view",
     ],
 
     // File suffix for template files

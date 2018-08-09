@@ -2,18 +2,17 @@
 
 namespace Anax\View;
 
-use \Anax\Common\AppInjectableInterface;
-use \Anax\Common\AppInjectableTrait;
+use Anax\Commons\ContainerInjectableInterface;
+use Anax\Commons\ContainerInjectableTrait;
 
 /**
  * Render a view based on a template file and a dataset.
  */
 class ViewRenderFile implements
     ViewRenderFileInterface,
-    AppInjectableInterface
+    ContainerInjectableInterface
 {
-    use ViewHelperTrait,
-        AppInjectableTrait;
+    use ContainerInjectableTrait;
 
 
 
@@ -23,9 +22,9 @@ class ViewRenderFile implements
      * @param string $file to include as view file.
      * @param array  $data to expose within the view.
      *
-     * @return void
-     *
      * @throws \Anax\View\Exception when template file is not found.
+     *
+     * @return void
      */
     public function render($file, $data)
     {
@@ -33,8 +32,11 @@ class ViewRenderFile implements
             throw new Exception("Could not find template file: " . $this->template);
         }
 
-        $data["app"] = $this->app;
+        $di = $this->di;
+        if ($di->has("app")) {
+            $app = $di->get("app");
+        }
         extract($data);
-        include $file;
+        require $file;
     }
 }

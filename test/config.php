@@ -23,4 +23,6 @@ require ANAX_INSTALL_PATH . "/vendor/autoload.php";
 /**
  * Include others.
  */
-require "View/MockViewHelper.php";
+foreach (glob(__DIR__ . "/Mock/*.php") as $file) {
+    require $file;
+}

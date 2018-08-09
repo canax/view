@@ -2,11 +2,12 @@
 
 namespace Anax\View;
 
-use \Anax\View\ViewRenderFile;
-use \Anax\View\Exception;
+use Anax\View\Exception;
+use Anax\View\ViewRenderFile;
+use Psr\Container\ContainerInterface;
 
 /**
- * A view connected to a template file.
+ * A view connected to a template file, supporting Anax DI.
  */
 class View
 {
@@ -45,17 +46,25 @@ class View
                 $this->template = $template["template"];
             }
 
-            $this->templateData = isset($template["data"])
-                ? $template["data"]
-                : $data;
+            $this->sortOrder = $template["sort"] ?? $sort;
+            $this->type = $template["type"] ?? $type;
 
-            $this->sortOrder = isset($template["sort"])
-                ? $template["sort"]
-                : $sort;
-
-            $this->type = isset($template["type"])
-                ? $template["type"]
-                : $type;
+            // Merge data array
+            $data1 = $template["data"] ?? [];
+            if (empty($data)) {
+                $this->templateData = $data1;
+            } else if (empty($data1)) {
+                $this->templateData = $data;
+            } else {
+                foreach ($data as $key => $val) {
+                    if (is_array($val)) {
+                        $data1[$key] = array_merge($data1[$key], $val);
+                    } else {
+                        $data1[$key] = $val;
+                    }
+                    $this->templateData = $data1;
+                }
+            }
 
             return;
         }
@@ -71,21 +80,22 @@ class View
 
 
     /**
-     * Render the view.
+     * Render the view by its type.
      *
-     * @param object $app optional with access to the framework resources.
+     * @param object $di optional with access to the framework resources.
      *
      * @return void
      */
-    public function render($app = null)
+    public function render(ContainerInterface $di = null)
     {
         switch ($this->type) {
             case "file":
-                if (!$app) {
-                    throw new Exception("View missing \$app.");
+                if ($di->has("viewRenderFile")) {
+                    $viewRender = $di->get("viewRenderFile");
+                } else {
+                    $viewRender = new ViewRenderFile($di);
+                    $viewRender->setDI($di);
                 }
-                $viewRender = new ViewRenderFile();
-                $viewRender->setApp($app);
                 $viewRender->render($this->template, $this->templateData);
                 break;
 

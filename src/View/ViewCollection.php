@@ -2,52 +2,66 @@
 
 namespace Anax\View;
 
-#use \Anax\View\View2 as View;
-use \Anax\View\View2;
-use \Anax\Configure\ConfigureInterface;
-use \Anax\Configure\ConfigureTrait;
-use \Anax\DI\InjectionAwareInterface;
-use \Anax\DI\InjectionAwareTrait;
+use Anax\Commons\ContainerInjectableInterface;
+use Anax\Commons\ContainerInjectableTrait;
 
 /**
  * A view collection supporting Anax DI, store all views per region,
  * render at will.
  */
 class ViewCollection implements
-    ConfigureInterface,
-    InjectionAwareInterface
+    ContainerInjectableInterface
 {
-    use InjectionAwareTrait;
-    use ConfigureTrait {
-        configure as protected loadConfiguration;
-    }
+    use ContainerInjectableTrait;
 
 
 
-    /** @var [] $views Array for all views. */
+    /**
+     * @var array $views container for all views.
+     */
     private $views = [];
 
 
 
     /**
-     * Load and apply configurations.
+     * @var array  $paths  where to look for template files.
+     * @var string $suffix add to each template file name.
+     */
+    private $paths = [];
+    private $suffix = ".php";
+
+
+
+    /**
+     * Set paths to search through when looking for template files.
      *
-     * @param array|string $what is an array with key/value config options
-     *                           or a file to be included which returns such
-     *                           an array.
-     *
-     * @throws Anax\Configure\Exception when template file is missing
+     * @param array $paths with directories to search through. 
      *
      * @return self
      */
-    public function configure($what)
+    public function setPaths(array $paths) : object
     {
-        $this->loadConfiguration($what);
-
-        $includes = $this->getConfig("include", []);
-        foreach ($includes as $include) {
-            require_once $include;
+        foreach ($paths as $path) {
+            if (!(is_dir($path) && is_readable($path))) {
+                throw new Exception("Directory '$path' is not readable.");
+            }
         }
+        $this->paths = $paths;
+        return $this;
+    }
+
+
+
+    /**
+     * Set suffix to add last to template file givven, as a filename extension.
+     *
+     * @param string $suffix to use as file extension. 
+     *
+     * @return self
+     */
+    public function setSuffix(string $suffix) : object
+    {
+        $this->suffix = $suffix;
         return $this;
     }
 
@@ -64,11 +78,8 @@ class ViewCollection implements
      */
     public function getTemplateFile($template)
     {
-        $paths  = $this->config["path"];
-        $suffix = $this->config["suffix"];
-
-        foreach ($paths as $path) {
-            $file = $path . "/" . $template . $suffix;
+        foreach ($this->paths as $path) {
+            $file = $path . "/" . $template . $this->suffix;
             if (is_file($file)) {
                 return $file;
             }
@@ -88,22 +99,27 @@ class ViewCollection implements
      *  callback (array with key callback set to a callable array),
      *  view array (key value array with template, data, region, sort)
      *
-     * @param string  $template the name of the template file to include.
-     * @param array   $data     variables to make available to the view,
-     *                          default is empty.
-     * @param string  $region   which region to attach the view, default is
-     *                          "main".
-     * @param integer $sort     which order to display the views.
+     * @param array|string  $template the name of the template file to include.
+     * @param array         $data     variables to make available to the view,
+     *                                default is empty.
+     * @param string        $region   which region to attach the view, default
+     *                                is "main".
+     * @param integer       $sort     which order to display the views.
      *
      * @return self for chaining.
      */
-    public function add($template, $data = [], $region = "main", $sort = 0)
+    public function add(
+        $template,
+        array $data = [],
+        string $region = "main",
+        int $sort = 0
+    ) : object
     {
         if (empty($template)) {
             return $this;
         }
 
-        $view = new View2();
+        $view = new View();
 
         if (is_string($template)) {
             $tpl = $this->getTemplateFile($template);
@@ -112,9 +128,7 @@ class ViewCollection implements
             // Can be array with complete view or array with callable callback
             $tpl = $template;
             $type = null;
-            $region = isset($tpl["region"])
-                ? $tpl["region"]
-                : $region;
+            $region = $tpl["region"] ?? $region;
 
             if (isset($tpl["callback"])) {
                 $tpl["template"] = $template;
@@ -147,7 +161,7 @@ class ViewCollection implements
      */
     public function addCallback($callback, $data = [], $region = "main", $sort = 0)
     {
-        $view = new View2();
+        $view = new View();
         $view->set(["callback" => $callback], $data, $sort, "callback");
         $this->views[$region][] = $view;
 
@@ -167,7 +181,7 @@ class ViewCollection implements
      */
     public function addString($content, $region = "main", $sort = 0)
     {
-        $view = new View2();
+        $view = new View();
         $view->set($content, [], $sort, "string");
         $this->views[$region][] = $view;
         

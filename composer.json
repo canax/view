@@ -19,11 +19,16 @@
     "autoload": {
         "psr-4": { 
             "Anax\\": "src/"
-        }
+        },
+        "files": [
+            "src/View/ViewHelperFunctions.php"
+        ]
     },
     "require": {
         "php": "^7.2",
-        "anax/common": "^2.0.0@alpha",
+        "anax/commons": "^2.0.0@alpha"
+    },
+    "require-dev": {
         "anax/configure": "^2.0.0@alpha",
         "anax/di": "^2.0.0@alpha"
     }

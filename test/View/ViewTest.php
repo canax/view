@@ -2,7 +2,7 @@
 
 namespace Anax\View;
 
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Views.
@@ -10,35 +10,7 @@ use \PHPUnit\Framework\TestCase;
 class ViewTest extends TestCase
 {
     /**
-     * Test
-     *
-     * @expectedException \Anax\View\Exception
-     */
-    public function testInvalidViewType()
-    {
-        $view = new View();
-        $view->set("void", [], 0, "not-valid-typ");
-        $view->render();
-    }
-
-
-
-    /**
-     * Test
-     *
-     * @expectedException \Anax\View\Exception
-     */
-    public function testMissingApp()
-    {
-        $view = new View();
-        $view->set("void", [], 0, "file");
-        $view->render();
-    }
-
-
-
-    /**
-     * Test
+     * View renderes a string.
      */
     public function testRenderString()
     {
@@ -49,7 +21,7 @@ class ViewTest extends TestCase
         ob_start();
         $view->render();
         $res = ob_get_contents();
-        $this->assertEquals($exp, $res);
         ob_end_clean();
+        $this->assertEquals($exp, $res);
     }
 }

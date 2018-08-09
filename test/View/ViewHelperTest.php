@@ -2,7 +2,7 @@
 
 namespace Anax\View;
 
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Views.
