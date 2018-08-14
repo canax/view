@@ -9,11 +9,13 @@ namespace Anax\View;
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
+$title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
+
 ?><!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?= $title ?? "No title" ?></title>
+    <title><?= $title ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php if (isset($favicon)) : ?>

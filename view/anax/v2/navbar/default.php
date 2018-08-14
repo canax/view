@@ -9,7 +9,9 @@ namespace Anax\View;
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
-?><navbar>
-    <a href="<?= url("") ?>">Home</a> |
-    <a href="<?= url("dev") ?>">Development</a>
+
+?><navbar class="navbar">
+<?php foreach ($navbar ?? [] as $item) : ?>
+    <a href="<?= url($item["url"]) ?>" title="<?= $item["title"] ?>"><?= $item["text"] ?></a>
+<?php endforeach; ?>
 </navbar>
