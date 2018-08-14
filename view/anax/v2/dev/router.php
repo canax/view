@@ -18,11 +18,12 @@ $router = $di->get("router");
 <p>The following routes are loaded:</p>
 
 <table>
-    <tr><th>Path</th><th>Method</th><th>Description</th></tr>
+    <tr><th>Path</th><th>Method</th><th>Handler type</th><th>Description</th></tr>
 <?php foreach ($router->getAll() as $route) : ?>
     <tr>
         <td><code>"<?= $route->getAbsolutePath() ?>"</code></td>
         <td><code><?= $route->getRequestMethod() ?></code></td>
+        <td><code><?= $route->getHandlerType() ?></code></td>
         <td><?= $route->getInfo() ?></td>
     </tr>
 <?php endforeach; ?>
@@ -31,10 +32,11 @@ $router = $di->get("router");
 <p>The following internal routes are loaded:</p>
 
 <table>
-    <tr><th>Path</th><th>Description</th></tr>
+    <tr><th>Path</th><th>Handler type</th><th>Description</th></tr>
 <?php foreach ($router->getInternal() as $route) : ?>
     <tr>
         <td><code>"<?= $route->getAbsolutePath() ?>"</code></td>
+        <td><code><?= $route->getHandlerType() ?></code></td>
         <td><?= $route->getInfo() ?></td>
     </tr>
 <?php endforeach; ?>
