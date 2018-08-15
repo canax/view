@@ -7,6 +7,7 @@ v2.0.0-beta.1 (2018-08-15)
 ---------------------------------
 
 * Add view anax/v2/content/default.php.
+* Remove stray src/View/ViewHelperTrait.
 
 
 
