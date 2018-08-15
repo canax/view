@@ -3,7 +3,7 @@ Revision history
 
 
 
-v2.0.0-alpha.9 (2018-08-15)
+v2.0.0-beta.1 (2018-08-15)
 ---------------------------------
 
 * Add view anax/v2/content/default.php.
