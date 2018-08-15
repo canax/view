@@ -2,6 +2,13 @@ Revision history
 =================================
 
 
+v2.0.0-alpha.8 (2018-08-15)
+---------------------------------
+
+* Add missing dev view for session increment and destroy.
+
+
+
 v2.0.0-alpha.7 (2018-08-14)
 ---------------------------------
 
