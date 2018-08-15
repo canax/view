@@ -186,3 +186,88 @@ function showEnvironment($variables, $functions)
 
     return $res;
 }
+
+
+
+/* OLDER VERSIONS MIGHT NEED IMPLEMENTING */
+
+/**
+ * Load content from a route and return details to view.
+ *
+ * @param string $route to load content from.
+ *
+ * @return array with values to extract in view.
+ */
+// public function getContentForRoute($route)
+// {
+//     $content = $this->di->get("content")->contentForInternalRoute($route);
+//     return $content->views["main"]["data"];
+// }
+
+
+
+/**
+ * Wrap a HTML element with start and end.
+ *
+ * @param string  $text  with content
+ * @param string  $tag   HTML tag to search for
+ * @param string  $start wrap start part
+ * @param string  $end   wrap end part
+ * @param number  $count hits to search for
+ *
+ * @return array with values to extract in view.
+ */
+// public function wrapElementWithStartEnd($text, $tag, $start, $end, $count)
+// {
+//     return $this->di->get("textFilter")->wrapElementWithStartEnd($text, $tag, $start, $end, $count);
+// }
+
+
+
+/**
+ * Wrap content of a HTML element with start and end.
+ *
+ * @param string  $text  with content
+ * @param string  $tag   HTML tag to search for
+ * @param string  $start wrap start part
+ * @param string  $end   wrap end part
+ * @param number  $count hits to search for
+ *
+ * @return array with values to extract in view.
+ */
+// public function wrapElementContentWithStartEnd($text, $tag, $start, $end, $count)
+// {
+//     return $this->di->get("textFilter")->wrapElementContentWithStartEnd($text, $tag, $start, $end, $count);
+// }
+
+
+
+/**
+ * Extrat the publish or update date for the article.
+ *
+ * @param array $dates a collection of possible date values.
+ *
+ * @return array with values for showing the date.
+ */
+// public function getPublishedDate($dates)
+// {
+//     $defaults = [
+//         "revision" => [],
+//         "published" => null,
+//         "updated" => null,
+//         "created" => null,
+//     ];
+//     $dates = array_merge($defaults, $dates);
+//
+//     if ($dates["revision"]) {
+//         return [t("Latest revision"), key($dates["revision"])];
+//     } elseif ($dates["published"]) {
+//         return [t("Published"), $dates["published"]];
+//     } elseif ($dates["updated"]) {
+//         return [t("Updated"), $dates["updated"]];
+//     } elseif ($dates["created"]) {
+//         return [t("Created"), $dates["created"]];
+//     }
+//
+//     return [t("Missing pubdate."), null];
+// }
