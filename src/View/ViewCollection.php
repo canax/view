@@ -35,7 +35,7 @@ class ViewCollection implements
     /**
      * Set paths to search through when looking for template files.
      *
-     * @param array $paths with directories to search through. 
+     * @param array $paths with directories to search through.
      *
      * @return self
      */
@@ -55,7 +55,7 @@ class ViewCollection implements
     /**
      * Set suffix to add last to template file givven, as a filename extension.
      *
-     * @param string $suffix to use as file extension. 
+     * @param string $suffix to use as file extension.
      *
      * @return self
      */
@@ -113,8 +113,7 @@ class ViewCollection implements
         array $data = [],
         string $region = "main",
         int $sort = 0
-    ) : object
-    {
+    ) : object {
         if (empty($template)) {
             return $this;
         }

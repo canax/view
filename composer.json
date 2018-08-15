@@ -1,16 +1,14 @@
 {
     "name": "anax/view",
     "type": "library",
-    "description": "Anax View module.",
-    "keywords": ["boilerplate", "framework", "mvc", "micro", "education"],
+    "description": "Anax View module, collect and render views.",
+    "keywords": ["anax", "template"],
     "homepage": "https://dbwebb.se/anax",
     "license": "MIT",
     "authors": [
         {
             "name": "Mikael Roos",
-            "email": "mos@dbwebb.se",
-            "homepage": "https://dbwebb.se",
-            "role": "Developer"
+            "email": "mos@dbwebb.se"
         }
     ],
     "support": {
@@ -30,6 +28,7 @@
     },
     "require-dev": {
         "anax/configure": "^2.0.0@alpha",
-        "anax/di": "^2.0.0@alpha"
+        "anax/di": "^2.0.0@alpha",
+        "phpunit/phpunit": "^7"
     }
 }

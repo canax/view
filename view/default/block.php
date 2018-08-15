@@ -5,7 +5,7 @@ if (isset($class)) {
     $classes[] = $class;
 }
 
-// Load content details from route 
+// Load content details from route
 if (isset($contentRoute)) {
     extract($this->getContentForRoute($contentRoute));
 }
@@ -36,12 +36,12 @@ $text = isset($text) ? $text : $content;
         $this->renderView("default/link-list", [
             "links" => $links
         ]);
-endif; ?>
+    endif; ?>
 
     <?php if (isset($toc)) :
         $this->renderView("default/toc-list", [
             "toc" => $toc
         ]);
-endif; ?>
+    endif; ?>
 
 </div>

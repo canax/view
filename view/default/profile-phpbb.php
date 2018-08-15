@@ -14,15 +14,12 @@ $gravatarImage = "//www.gravatar.com/avatar/$gravatar?r=pg&amp;s=40&amp;d=wavata
                 <i class="icon fa fa-sign-in"></i>
             </a>
         </span>
-
     <?php else : ?>
-
 <!--
         <span class="logout"><a href="/forum/ucp.php?mode=logout">Logout</a></span>
 
         <span class="ucp"><a href="/forum/ucp.php"><i class="fa fa-user fa-2x"></i></a></span>
 -->
-
         <span class="gravatar"><a href="/forum/ucp.php"><img src="<?= $gravatarImage ?>" alt=""></a></span>
     <?php endif; ?>
 </span>

@@ -15,7 +15,7 @@ $items = [1, 2, 3, 4];
 ?><h1>A list</h1>
 
 <ul>
-<?php foreach($items as $item) : ?>
+<?php foreach ($items as $item) : ?>
     <?= renderView("test/render-view/view2", ["item" => $item]); ?>
 <?php endforeach; ?>
 </ul>

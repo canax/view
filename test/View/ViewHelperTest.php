@@ -45,14 +45,11 @@ class ViewHelperTest extends TestCase
     /**
      * Test
      *
-     * @return void
-     *
      * @dataProvider providerClassList
      */
     public function testClassList($args, $exp)
     {
-        $view = new MockViewHelper();
-        $res = $view->classList(...$args);
+        $res = classList(...$args);
         $this->assertEquals($exp, $res, "Classlist did not match.");
     }
 }

@@ -18,7 +18,7 @@ $classes = isset($classes) ? $classes : null;
     $template = isset($column["template"])
         ? $column["template"]
         : "default/block";
-?>
+    ?>
     <div <?= $this->classList("column $outerClass") ?>>
 
         <?php
@@ -27,10 +27,10 @@ $classes = isset($classes) ? $classes : null;
             ? $column["data"]
             : $column;
         $this->renderView($template, $data);
-            ?>
+        ?>
 
     </div>
-<?php $i++;
+    <?php $i++;
 endforeach; ?>
 
 </div>

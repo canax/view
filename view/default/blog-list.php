@@ -62,7 +62,7 @@ $dateFormat = isset($dateFormat) ? $dateFormat : "m/d/Y";
             ?>
 
         </section>
-    <?php
+        <?php
     endforeach; ?>
 
     <footer>

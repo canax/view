@@ -15,7 +15,7 @@
         $title = isset($link["title"])
             ? " title=\"${link["title"]}\""
             : null; */
-    ?>
+        ?>
     <li><a href="<?= $url ?>"<?= $title ?>><?= $text ?></a></li>
     <?php endforeach; ?>
 

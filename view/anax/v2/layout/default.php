@@ -23,9 +23,9 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <?php endif; ?>
 
 <?php if (isset($stylesheets)) : ?>
-<?php foreach ($stylesheets as $stylesheet) : ?>
-    <link rel="stylesheet" type="text/css" href="<?= asset($stylesheet) ?>">
-<?php endforeach; ?>
+    <?php foreach ($stylesheets as $stylesheet) : ?>
+        <link rel="stylesheet" type="text/css" href="<?= asset($stylesheet) ?>">
+    <?php endforeach; ?>
 <?php endif; ?>
 
 </head>
@@ -84,9 +84,9 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <?php endif; ?>
 
 <?php if (isset($stylesheets)) : ?>
-<?php foreach ($javascripts as $javascript) : ?>
-<script async src="<?= asset($javascript) ?>"></script>
-<?php endforeach; ?>
+    <?php foreach ($javascripts as $javascript) : ?>
+    <script async src="<?= asset($javascript) ?>"></script>
+    <?php endforeach; ?>
 <?php endif; ?>
 
 </body>

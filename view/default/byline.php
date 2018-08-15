@@ -12,7 +12,7 @@ foreach ($author as $val) :
     if (!isset($byline)) {
         continue;
     }
-?><div <?= $this->classList($classes) ?>>
-<?= $byline ?>
+    ?><div <?= $this->classList($classes) ?>>
+    <?= $byline ?>
 </div>
 <?php endforeach;

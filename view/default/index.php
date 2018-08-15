@@ -195,7 +195,7 @@ $class .= empty($class) ? "" : "has-sidebar";
 <?php if (isset($javascripts)) :
     foreach ($javascripts as $javascript) : ?>
 <script async src="<?=$this->asset($javascript)?>"></script>
-<?php
+        <?php
     endforeach;
 endif; ?>
 
@@ -203,7 +203,7 @@ endif; ?>
 
 <!-- useful for inline javascripts such as google analytics-->
 <?php if ($this->regionHasContent("body-end")) : ?>
-<?php $this->renderRegion("body-end")?>
+    <?php $this->renderRegion("body-end")?>
 <?php endif; ?>
 
 </body>
