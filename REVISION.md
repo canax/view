@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.0-beta.3 (2018-08-21)
+---------------------------------
+
+* Template file anax/v2/error/default.php should not echo debug info.
+
+
+
 v2.0.0-beta.2 (2018-08-15)
 ---------------------------------
 
