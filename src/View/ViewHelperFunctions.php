@@ -139,6 +139,20 @@ function currentRoute()
 
 
 /**
+ * Escape HTML entities.
+ *
+ * @param string $string to be escaped.
+ *
+ * @return string as resulting route.
+ */
+function e($string) : string
+{
+    return htmlentities($string);
+}
+
+
+
+/**
  * Show variables/functions that are currently defined and can
  * be used within the view. Call the function with get_defined_vars()
  * as the parameter.
