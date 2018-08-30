@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.0-beta.4 (2018-08-30)
+---------------------------------
+
+* Added view helper e() as alias for htmlentities.
+
+
+
 v2.0.0-beta.3 (2018-08-21)
 ---------------------------------
 
