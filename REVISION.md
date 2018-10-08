@@ -3,6 +3,14 @@ Revision history
 
 
 
+v2.0.0-beta.x (2018-10-08)
+---------------------------------
+
+* Send $data as argument to callable view.
+* Add unit test for $data when setting view details.
+
+
+
 v2.0.0-beta.4 (2018-08-30)
 ---------------------------------
 
