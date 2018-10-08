@@ -27,7 +27,8 @@ class View
     /**
      * Set values for the view.
      *
-     * @param array|string $template the template file, or array
+     * @param array|string|callable $template the template file, array
+     *                                        or callable
      * @param array        $data     variables to make available to the
      *                               view, default is empty
      * @param integer      $sort     which order to display the views,
@@ -41,7 +42,7 @@ class View
         if (is_array($template)) {
             if (isset($template["callback"])) {
                 $type = "callback";
-                $this->template = $template;
+                $this->template = $template["callback"];
             } else {
                 $this->template = $template["template"];
             }
@@ -100,11 +101,11 @@ class View
                 break;
 
             case "callback":
-                if (!isset($this->template["callback"]) || !is_callable($this->template["callback"])) {
-                    throw new Exception("View missing callback.");
+                if (!is_callable($this->template)) {
+                    throw new Exception("View is expecting a valid callback, provided callback seems to not be a callable.");
                 }
 
-                echo call_user_func($this->template["callback"]);
+                echo call_user_func($this->template, $this->templateData);
 
                 break;
 
