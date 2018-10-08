@@ -94,11 +94,14 @@ class ViewTest extends TestCase
             return "$str1, $str2:";
         };
         $view = new View();
-        $view->set([
+        $view->set(
+            [
                 "callback" => $template,
                 "data" => ["str1" => "str1"]
             ],
-            ["str2" => "str2"], 0, "callback"
+            ["str2" => "str2"],
+            0,
+            "callback"
         );
         
         ob_start();
@@ -118,7 +121,6 @@ class ViewTest extends TestCase
     public function testAddViewMergeDataWithArray()
     {
         $template = function ($data) {
-            var_dump($data);
             $str1 = $data["str1"] ?? null;
             $str2 = $data["str2"] ?? null;
             $str3a = $data["str3"]["a"] ?? null;
@@ -126,7 +128,8 @@ class ViewTest extends TestCase
             return "$str1, $str2, $str3a, $str3b:";
         };
         $view = new View();
-        $view->set([
+        $view->set(
+            [
                 "callback" => $template,
                 "data" => [
                     "str1" => "str1",
@@ -136,7 +139,9 @@ class ViewTest extends TestCase
             [
                 "str2" => "str2",
                 "str3" => ["b" => "b"]
-            ], 0, "callback"
+            ],
+            0,
+            "callback"
         );
         
         ob_start();
