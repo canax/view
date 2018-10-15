@@ -3,11 +3,12 @@ Revision history
 
 
 
-v2.0.0-beta.x (2018-10-08)
+v2.0.0-beta.5 (2018-10-15)
 ---------------------------------
 
 * Send $data as argument to callable view.
 * Add unit test for $data when setting view details.
+* Add view function getPublishedDate().
 
 
 
