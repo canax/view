@@ -17,5 +17,5 @@ interface ViewRenderFileInterface
      *
      * @return void
      */
-    public function render($file, $data);
+    public function render(string $file, array $data) : void;
 }

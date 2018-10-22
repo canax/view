@@ -1,7 +1,16 @@
 <?php
-$class = isset($class)
-    ? $class
-    : null;
+
+namespace Anax\View;
+
+/**
+ * A layout rendering views in defined regions.
+ */
+
+// Show incoming variables and view helper functions
+//echo showEnvironment(get_defined_vars(), get_defined_functions());
+
+$src = $src ?? null;
+$class = $class ?? null;
 
 $alt = isset($alt)
     ? " alt=\"$alt\""
@@ -23,5 +32,5 @@ if (isset($href)) {
 }
 
 ?><?= $hrefStart ?>
-<img <?= $this->classList($class) ?> src="<?= $this->asset($src) ?>"<?= $alt ?>>
+<img <?= classList($class) ?> src="<?= asset($src) ?>"<?= $alt ?>>
 <?= $hrefEnd ?>

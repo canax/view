@@ -26,7 +26,7 @@ class ViewRenderFile implements
      *
      * @return void
      */
-    public function render($file, $data)
+    public function render(string $file, array $data) : void
     {
         if (!is_readable($file)) {
             throw new Exception("Could not find template file: " . $this->template);

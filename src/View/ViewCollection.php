@@ -68,7 +68,7 @@ class ViewCollection implements
 
 
     /**
-     * Convert template to path to template file.
+     * Convert template to path to template file and check that it exists.
      *
      * @param string $template the name of the template file to include
      *
@@ -78,6 +78,11 @@ class ViewCollection implements
      */
     public function getTemplateFile($template)
     {
+        $file = $template . $this->suffix;
+        if (is_file($file)) {
+            return $file;
+        }
+
         foreach ($this->paths as $path) {
             $file = $path . "/" . $template . $this->suffix;
             if (is_file($file)) {
@@ -113,20 +118,18 @@ class ViewCollection implements
         array $data = [],
         string $region = "main",
         int $sort = 0
-    ) : object {
-        if (empty($template)) {
-            return $this;
-        }
-
+    ) : object
+    {
         $view = new View();
-
-        if (is_string($template)) {
+        if (empty($template)) {
+            $type = "empty";
+        } elseif (is_string($template)) {
             $tpl = $this->getTemplateFile($template);
             $type = "file";
         } elseif (is_array($template)) {
             // Can be array with complete view or array with callable callback
             $tpl = $template;
-            $type = null;
+            $type = "empty";
             $region = $tpl["region"] ?? $region;
 
             if (isset($tpl["callback"])) {

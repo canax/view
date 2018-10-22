@@ -39,7 +39,10 @@ class View
      */
     public function set($template, $data = [], $sort = 0, $type = "file")
     {
-        if (is_array($template)) {
+        if (empty($template)) {
+            echo "DUMP";
+            $type = "empty";
+        } elseif (is_array($template)) {
             if (isset($template["callback"])) {
                 $type = "callback";
                 $this->template = $template["callback"];
@@ -104,18 +107,18 @@ class View
                 if (!is_callable($this->template)) {
                     throw new Exception("View is expecting a valid callback, provided callback seems to not be a callable.");
                 }
-
                 echo call_user_func($this->template, $this->templateData);
-
                 break;
 
             case "string":
                 echo $this->template;
+                break;
 
+            case "empty":
                 break;
 
             default:
-                throw new Exception("Not a valid template type: {$this->type}");
+                throw new Exception("Not a valid template type: '{$this->type}'.");
         }
     }
 

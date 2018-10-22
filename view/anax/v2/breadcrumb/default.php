@@ -9,6 +9,12 @@ namespace Anax\View;
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
-renderView("anax/v2/link-list/default", [
-    "links" => $breadcrumb
-]);
+
+
+?><nav class="breadcrumb-list" role="navigation">
+    <?php
+    renderView(__DIR__ . "/../link-list/default", [
+        "links" => $breadcrumb
+    ]);
+    ?>
+</nav>

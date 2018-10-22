@@ -235,8 +235,6 @@ function getPublishedDate($dates)
 
 
 
-/* OLDER VERSIONS MIGHT NEED IMPLEMENTING */
-
 /**
  * Load content from a route and return details to view.
  *
@@ -244,13 +242,16 @@ function getPublishedDate($dates)
  *
  * @return array with values to extract in view.
  */
-// public function getContentForRoute($route)
-// {
-//     $content = $this->di->get("content")->contentForInternalRoute($route);
-//     return $content->views["main"]["data"];
-// }
+function getContentForRoute($route)
+{
+    global $di;
+    $content = $di->get("content")->contentForInternalRoute($route);
+    return $content->views["main"]["data"];
+}
 
 
+
+/* OLDER VERSIONS MIGHT NEED IMPLEMENTING */
 
 /**
  * Wrap a HTML element with start and end.
