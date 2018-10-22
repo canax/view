@@ -62,6 +62,9 @@ class View
             } else {
                 foreach ($data as $key => $val) {
                     if (is_array($val)) {
+                        if (!array_key_exists($key, $data1)) {
+                            $data1[$key] = [];
+                        }
                         $data1[$key] = array_merge($data1[$key], $val);
                     } else {
                         $data1[$key] = $val;
