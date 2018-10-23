@@ -3,6 +3,14 @@ Revision history
 
 
 
+v2.0.0-beta.8 (2018-10-23)
+---------------------------------
+
+* Add view helper redirect().
+* Update layout to use flash message.
+
+
+
 v2.0.0-beta.7 (2018-10-22)
 ---------------------------------
 

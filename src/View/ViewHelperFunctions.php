@@ -139,6 +139,25 @@ function currentRoute()
 
 
 /**
+ * Redirect to another url.
+ *
+ * @param string $url to be redirected to.
+ *
+ * @return void.
+ *
+ * @SuppressWarnings(PHPMD.ExitExpression)
+ *
+ */
+function redirect(string $url) : void
+{
+    global $di;
+    $di->get("response")->redirect($url)->send();
+    exit;
+}
+
+
+
+/**
  * Escape HTML entities.
  *
  * @param string $string to be escaped.
