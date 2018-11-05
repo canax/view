@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.0-beta.12 (2018-11-05)
+---------------------------------
+
+* Fix code style validation in file render.
+
+
+
 v2.0.0-beta.11 (2018-11-05)
 ---------------------------------
 

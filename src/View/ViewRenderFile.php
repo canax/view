@@ -33,6 +33,7 @@ class ViewRenderFile implements
         }
 
         $di = $this->di;
+        $app = null;
         if ($di->has("app")) {
             $app = $di->get("app");
         }
