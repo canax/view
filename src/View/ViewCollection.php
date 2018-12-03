@@ -120,7 +120,9 @@ class ViewCollection implements
         int $sort = 0
     ) : object {
         $view = new View();
+
         if (empty($template)) {
+            $tpl = null;
             $type = "empty";
         } elseif (is_string($template)) {
             $tpl = $this->getTemplateFile($template);

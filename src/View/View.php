@@ -40,7 +40,6 @@ class View
     public function set($template, $data = [], $sort = 0, $type = "file")
     {
         if (empty($template)) {
-            echo "DUMP";
             $type = "empty";
         } elseif (is_array($template)) {
             if (isset($template["callback"])) {
