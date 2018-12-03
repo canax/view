@@ -270,8 +270,6 @@ function getContentForRoute($route)
 
 
 
-/* OLDER VERSIONS MIGHT NEED IMPLEMENTING */
-
 /**
  * Wrap a HTML element with start and end.
  *
@@ -283,10 +281,11 @@ function getContentForRoute($route)
  *
  * @return array with values to extract in view.
  */
-// public function wrapElementWithStartEnd($text, $tag, $start, $end, $count)
-// {
-//     return $this->di->get("textFilter")->wrapElementWithStartEnd($text, $tag, $start, $end, $count);
-// }
+function wrapElementWithStartEnd($text, $tag, $start, $end, $count)
+{
+    global $di;
+    return $di->get("textfilter")->wrapElementWithStartEnd($text, $tag, $start, $end, $count);
+}
 
 
 
@@ -301,7 +300,8 @@ function getContentForRoute($route)
  *
  * @return array with values to extract in view.
  */
-// public function wrapElementContentWithStartEnd($text, $tag, $start, $end, $count)
-// {
-//     return $this->di->get("textFilter")->wrapElementContentWithStartEnd($text, $tag, $start, $end, $count);
-// }
+function wrapElementContentWithStartEnd($text, $tag, $start, $end, $count)
+{
+    global $di;
+    return $di->get("textfilter")->wrapElementContentWithStartEnd($text, $tag, $start, $end, $count);
+}
