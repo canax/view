@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.0-beta.14 (2019-03-19)
+---------------------------------
+
+* Add view for stylechooser in view/anax/v2/stylechooser.
+
+
+
 v2.0.0-beta.13 (2018-12-03)
 ---------------------------------
 
