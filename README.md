@@ -32,6 +32,11 @@ It works like this:
 
 You can see a sample of views in the directory [`view/anax/v2`](view/anax/v2).
 
+
+
+Views are rendered in a layout
+------------------
+
 The views are rendered in an orderd fashion by a structured layout. This layout is in itself a view (template file and data), it is just a view which renders more views.
 
 You can see a sample of an layout view in [`view/anax/v2/layout`](view/anax/v2/layout).
