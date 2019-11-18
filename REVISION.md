@@ -3,6 +3,14 @@ Revision history
 
 
 
+v2.0.2 (2019-11-05)
+---------------------------------
+
+* Add views to render plain information in `plain/pre`.
+* Update Makefile from commons.
+
+
+
 v2.0.1 (2019-04-05)
 ---------------------------------
 
