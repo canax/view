@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.3 (2020-03-31)
+---------------------------------
+
+* Fix notice in view next-previous/default.php due to PHP 7.4.
+
+
+
 v2.0.2 (2019-11-05)
 ---------------------------------
 
