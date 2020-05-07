@@ -107,7 +107,7 @@ function classList(...$args)
         $classes = array_merge($classes, $arg);
     }
 
-    return "class=\"" . implode(" ", $classes) . "\"";
+    return "class=\"" . e(implode(" ", $classes)) . "\"";
 }
 
 

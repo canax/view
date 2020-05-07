@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.4 (2020-05-07)
+---------------------------------
+
+* Escape output in classList, avoid xss, fix dbwebb-se/website#92
+
+
+
 v2.0.3 (2020-03-31)
 ---------------------------------
 
