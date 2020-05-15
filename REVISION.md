@@ -3,10 +3,17 @@ Revision history
 
 
 
+v2.0.8 (2020-05-15)
+---------------------------------
+
+* Add template file for list of images.
+
+
+
 v2.0.7 (2020-05-15)
 ---------------------------------
 
-* Add template file for google analytics
+* Add template file for google analytics.
 
 
 
