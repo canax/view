@@ -11,13 +11,17 @@ namespace Anax\View;
 
 // Get detailed error message from the router, if any
 $message = $di->get("router")->getErrorMessage();
+$header = $header ?? null;
 
 
 
-?><h1><?= $header ?></h1>
+?><article class="article">
+<h1><?= $header ?></h1>
 <p><?= $text ?></p>
 
 <?php if ($message && !defined("ANAX_PRODUCTION")) : ?>
 <p><strong>Detailed message:</strong></p>
 <p><?= $message ?></p>
 <?php endif; ?>
+
+</article>
