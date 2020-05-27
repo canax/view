@@ -3,7 +3,7 @@ Revision history
 
 
 
-v2.0.x (2020-05-27)
+v2.0.10 (2020-05-27)
 ---------------------------------
 
 * Add layout with preconnect links.
