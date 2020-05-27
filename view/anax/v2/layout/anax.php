@@ -54,7 +54,6 @@ $route = "route-" . str_replace("/", "-", $di->get("request")->getRoute());
     <link rel="icon" href="<?= asset($favicon) ?>">
     <?php endif; ?>
 
-    <link rel="preconnect" href="https://example.com">
     <?php if (isset($preconnect)) : ?>
         <?php foreach ($preconnect as $item) : ?>
             <link rel="preconnect" href="<?= asset($item) ?>">
@@ -63,7 +62,7 @@ $route = "route-" . str_replace("/", "-", $di->get("request")->getRoute());
 
     <?php if (isset($stylesheets)) : ?>
         <?php foreach ($stylesheets as $stylesheet) : ?>
-            <link rel="stylesheet" type="text/css" href="<?= asset($stylesheet) ?>">
+            <link rel="stylesheet" type="text/css" media="all" href="<?= asset($stylesheet) ?>">
         <?php endforeach; ?>
     <?php endif; ?>
 
