@@ -1,6 +1,8 @@
 Anax View
 ==================================
 
+[![Join the chat at https://gitter.im/canax/view](https://badges.gitter.im/canax/view.svg)](https://gitter.im/canax/view?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Latest Stable Version](https://poser.pugx.org/anax/view/v/stable)](https://packagist.org/packages/anax/view)
 [![Join the chat at https://gitter.im/mosbth/anax](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/canax?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
