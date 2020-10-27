@@ -13,7 +13,7 @@ $classes = $class ?? null;
 
 
 ?><div <?= classList($classes) ?>>
-        <?php foreach($images as $img) :
+        <?php foreach ($images as $img) :
             $src = $img["src"] ?? null;
             $url = substr($src, 0, strpos($src, "?"));
             $alt = $img["alt"] ?? null;

@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.12 (2020-10-27)
+---------------------------------
+
+* Add helper urlController() to allow for relative linking within current controller mountpoint.
+
+
+
 v2.0.11 (2020-05-27)
 ---------------------------------
 

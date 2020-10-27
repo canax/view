@@ -38,6 +38,25 @@ function url($url = "")
 
 
 /**
+ * Shortcut to create an url for routing in the framework,
+ * use current controller as the base for the url.
+ *
+ * @param null|string $url url, relative controller mount point,
+ *                         to use when creating the url.
+ *
+ * @return string as resulting url.
+ */
+function urlController($url = "")
+{
+    global $di;
+    $mount = rtrim($di->get("router")->getLastRoute(), "/");
+
+    return $di->get("url")->create("$mount/$url");
+}
+
+
+
+/**
  * Render a view with an optional data set of variables.
  *
  * @param string $template the template file, or array
