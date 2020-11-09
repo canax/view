@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.13 (2020-11-10)
+---------------------------------
+
+* Add view layout/plain.php as a simple view only rendering region main.
+
+
+
 v2.0.12 (2020-10-27)
 ---------------------------------
 
