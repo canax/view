@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.0.15 (2020-12-25)
+---------------------------------
+
+* Add template image/background.php to display a background image.
+
+
+
 v2.0.14 (2020-12-25)
 ---------------------------------
 

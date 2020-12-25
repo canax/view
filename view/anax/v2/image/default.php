@@ -3,7 +3,7 @@
 namespace Anax\View;
 
 /**
- * A layout rendering views in defined regions.
+ * A image element.
  */
 
 // Show incoming variables and view helper functions
