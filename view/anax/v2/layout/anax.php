@@ -86,9 +86,9 @@ $route = "route-" . str_replace("/", "-", $di->get("request")->getRoute());
         <div class="row">
             <header class="region-header" role="banner">
                 <!-- header -->
-                <?php if (regionHasContent("header")) : ?>
-                <div class="region-header-col-1">
-                    <?php renderRegion("header") ?>
+                <?php if (regionHasContent("header-first")) : ?>
+                <div class="region-header-first">
+                    <?php renderRegion("header-first") ?>
                 </div>
                 <?php endif; ?>
 
@@ -115,6 +115,12 @@ $route = "route-" . str_replace("/", "-", $di->get("request")->getRoute());
             </header>
         </div>
     </div>
+    <!-- header -->
+    <?php if (regionHasContent("header-no-grid")) : ?>
+    <div class="region-header-no-grid">
+        <?php renderRegion("header-no-grid") ?>
+    </div>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 
