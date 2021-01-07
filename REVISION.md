@@ -3,6 +3,15 @@ Revision history
 
 
 
+v2.0.18 (2021-01-07)
+---------------------------------
+
+* Improved template image/background.php.
+* Improved template layout/anax.php.
+
+
+
+v2.0.17 (2020-12-25)
 v2.0.16 (2020-12-25)
 v2.0.15 (2020-12-25)
 ---------------------------------
