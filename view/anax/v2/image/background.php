@@ -9,7 +9,22 @@ namespace Anax\View;
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
-$src = $src ?? null;
 $class = $class ?? null;
+$height = $height ?? "100%";
+$src = $src ?? null;
+$href = $href ?? null;
 
-?><div <?= classList("background-image", $class) ?> style="background-image:url(<?= asset($src) ?>)">
+if (!$src) {
+    throw new Exception("Template missing required attribute 'src'.");
+}
+
+$start = null;
+$end = null;
+if ($href) {
+    $start = "<a href=\"" . asset($href) . "\">";
+    $end = "</a>";
+}
+
+?><?= $start ?>
+    <div <?= classList("background-image", $class) ?> style="background-image:url(<?= asset($src) ?>); height: <?= $height ?>;"></div>
+<?= $end ?>
